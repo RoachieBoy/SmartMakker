@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="description" content="Smartlap generator!">
+    <title>SmartMakker</title>
+    <link rel="icon" href="../../static/svg/Logo_Clean.svg">
+    <link rel="stylesheet" href="../../static/css/stylesheet.css">
+</head>
+
+<body>
+<header>
+    <a href="/" id="logo-full">
+        <img src="../../static/svg/Logo_Clean.svg" id="logo-image">
+        <h1>
+            <i style="color: #FF6F59; font-size: xx-large;">Smart</i>
+            <span style="color: white; font-size: xx-large;">Makker</span>
+        </h1>
+    </a>
+    <img src="../../static/svg/flowing_gradient.svg" id="help">
+</header>
+
+<div id="results-container" class="prompt-box">
+        <textarea class="results-box" id="prompt" rows="40" cols="150" disabled
+                  placeholder="Er is momenteel geen text beschikbaar. Genereer een text met de SmartMakker om hem hier te laten zien.">{{prompt}}
+        </textarea>
+
+    <div id="button-container-end-page">
+        <div id="button-container-end-one">
+            <div>
+                <button onclick="returnToModelPage()" class="image-button button-behaviour">
+                    <img src="../../static/svg/return.svg">
+                </button>
+            </div>
+        </div>
+
+        <div id="button-container-end-two">
+            <div class="button-behaviour">
+                <button onclick="copytext()" class="image-button button-behaviour">
+                    <img src="../../static/svg/copy-linear.svg">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function copytext() {
+        const elem = document.getElementById('prompt');
+        elem.select()
+        elem.setSelectionRange(0, 99999);
+
+        navigator.clipboard.writeText(elem.value)
+    }
+
+    function returnToModelPage() {
+        window.location.href = "/lyric_generator"
+    }
+</script>
+</body>
+</html>

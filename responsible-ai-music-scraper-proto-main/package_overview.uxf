@@ -1,0 +1,40 @@
+<diagram program="umletino" version="15.1"><zoom_level>16</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLHierarchy</id><coordinates><x>0</x><y>16</y><w>448</w><h>496</h></coordinates><panel_attributes>type=Package
+data_collector
+	backends
+	text_computing
+	data_io
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>528</x><y>0</y><w>320</w><h>144</h></coordinates><panel_attributes>text_computing
+--
++ Get text container
++ Get manipulation pipelines
+halign=left
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>128</y><w>128</w><h>192</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;import&gt;&gt;</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1456</x><y>512</y><w>320</w><h>112</h></coordinates><panel_attributes>argparse
+--
++ Parse arguments
+halign=left
+bg=blue
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1296</x><y>560</y><w>192</w><h>64</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;import&gt;&gt;</panel_attributes><additional_attributes>100;20;10;20</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>528</x><y>512</y><w>320</w><h>112</h></coordinates><panel_attributes>data_io
+--
++ Parse json to collector pipeline
++ Save text container as csv
+halign=left
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>832</x><y>560</y><w>192</w><h>64</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;import&gt;&gt;</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>528</x><y>256</y><w>320</w><h>144</h></coordinates><panel_attributes>backends
+--
++ Get backend
++ Fill text container 
++ Get collector pipeline 
+halign=left
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>672</x><y>384</y><w>128</w><h>192</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;import&gt;&gt;</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>UMLPackage</id><coordinates><x>992</x><y>496</y><w>320</w><h>192</h></coordinates><panel_attributes>data_collector
+--
++ Set-up possible CLI argumens
++ Parse json to data_io
++ Run collector pipeline
++ Parse text container to data_io
+halign=left
+bg=red
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

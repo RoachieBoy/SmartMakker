@@ -1,0 +1,3 @@
+# IMPORTANT
+
+NO MODEL IS BUNDLED, SEE [NOTEBOOK](demo_gradio.ipynb) FOR EXAMPLE!

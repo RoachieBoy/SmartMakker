@@ -1,0 +1,47 @@
+h1 {
+    color: #58504A;
+    font-family: sans-serif;
+}
+h4 {
+    color: #58504A;
+    font-family: sans-serif;
+}
+p  {
+    color: #58504A;
+    font-family: sans-serif;
+}
+input   {
+    text-align: center;
+    color: #FF6F59;
+    font-family: sans-serif;
+}
+a   {
+    color: #58504A;
+    font-family: sans-serif;
+}
+.top_area { 
+    color: #D3D0CB;
+    font-family: sans-serif;
+    font-size: 32px;
+    padding-top: 30px;
+    padding-left: 20px;
+    background-color: #6F58C9;
+    height: 100px;
+}
+.steps_text_h {
+    display: flex;   
+    justify-content: center;
+    text-align: center;
+}
+.steps_text_v {
+    display: none;   
+    justify-content: center;
+    text-align: center;
+}
+.title_text {
+    text-align: right; 
+    margin-top: 3vw; 
+    font-size: 2.4vw;
+    font-family: sans-serif;
+    color: #58504A;
+}

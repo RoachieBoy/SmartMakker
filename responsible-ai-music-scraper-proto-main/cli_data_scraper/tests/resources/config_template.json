@@ -1,0 +1,30 @@
+{
+  "genius": {
+    "name": "genius_smart_collector",
+    "call_arguments": {
+      "genius_token": "testToken123",
+      "max_songs_pr_artists": 20,
+      "sort": "popularity",
+      "artists": [
+        "Frans Bauer"
+      ]
+    }
+  },
+  "short_stories": {
+    "name": "dutch_short_stories",
+    "call_arguments": {
+      "amount": 20,
+      "base_url": "www.shortstoryproject.com",
+      "page_url": "page/{}"
+    }
+  },
+  "1001_stories": {
+    "name": "depression_1001_stories",
+    "call_arguments": {
+      "amount": 20,
+      "genre": "depression",
+      "base_url": "www.1001stories.com",
+      "page_url": "/{}/"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "short_stories": {
+        "name": "dutch_short_stories",
+        "call_arguments": {
+            "amount": 400,
+            "base_url": "https://shortreads.nl/",
+            "page_url": "page/{}"
+        }
+    },
+    "1001_stories": {
+        "name": "depression_1001_stories",
+        "call_arguments": {
+            "amount": 200,
+            "genres": ["romantische-verhalen", "overige-verhalen", "fantasie-verhalen", "spannende-verhalen"],
+            "base_url": "https://1001korteverhalen.nl/",
+            "page_url": "{}/"
+        }
+    }
+}

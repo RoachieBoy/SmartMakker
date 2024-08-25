@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="description" content="Smartlap generator!">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/ico/favicon-16x16.png">
+    <link rel="manifest" href="../../static/ico/site.webmanifest">
+    <link rel="mask-icon" href="../../static/ico/safari-pinned-tab.svg" color="#6F58C9">
+    <meta name="msapplication-TileColor" content="#6F58C9">
+    <meta name="theme-color" content="#6F58C9">
+    <title>SmartMakker</title>
+    <link rel="stylesheet" href="../../static/css/stylesheet.css">
+</head>
+
+<body>
+<header>
+    <a href="/" id="logo-full">
+        <img src="../../static/ico/android-chrome-512x512.png" id="logo-image">
+        <h1>
+            <i style="color: #FF6F59; font-size: xx-large;">Smart</i>
+            <span style="color: white; font-size: xx-large;">Makker</span>
+        </h1>
+    </a>
+    <img src="../../static/svg/flowing_gradient.svg" id="help">
+</header>
+
+<div id="prompt-container">
+    <div id="prompt-input" class="prompt-box">
+            <textarea id="prompt" name="prompt" placeholder="Type de start van uw lied..."></textarea>
+        <div class="icon-holder">
+            <div id="loading-symbol">
+                <div>
+                    <img id="loading-symbol-svg" src="../../static/svg/tadpole.svg">
+                </div>
+            </div>
+
+            <div class="error-container">
+                <div id="error_message" class="error_message"></div>
+            </div>
+
+            <div class="button-container">
+                <button onclick="clearText()" id="clear" class="image-button button-behaviour">
+                    <img src="../../static/svg/bomb-minimalistic-linear.svg">
+                </button>
+
+                <button id="submit" class="image-button button-behaviour">
+                    <object style="pointer-events: none;" id="submit-object" data="../../static/svg/arrow_right.svg"
+                            type="image/svg+xml" width="80%"></object>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="prompt-output" class="prompt-box">
+            <textarea id="result" name="result" placeholder="Gegenereerde tekst komt hier terecht."
+                      disabled></textarea>
+        <div>
+            <button id="finalize" class="image-button button-behaviour" disabled>
+                <object style="pointer-events: none;" id="finalize-object" data="../../static/svg/checkmark.svg"
+                        type="image/svg+xml" width="80%"></object>
+            </button>
+        </div>
+    </div>
+</div>
+<div id="options-container">
+    <div class="options-set">
+        <div class="options">
+            <label for="temperature">Creativiteit</label>
+            <div class="slider">
+                <input id="temperature" type="range" value="5" min="1" max="10" step="1">
+            </div>
+            <div id="temperature-value">0.8</div>
+        </div>
+
+
+        <div class="options">
+            <label for="nsfw">Laat 18+ Text Zien</label>
+            <input style="margin-top: 4px;" type="checkbox" id="nsfw" name="nsfw">
+        </div>
+    </div>
+
+    <div class="options-set">
+        <div class="options">
+            <label for="repetition">Repititie</label>
+            <div class="slider">
+                <input id="repetition" type="range" value="5" min="1" max="10" step="1">
+            </div>
+            <div id="repetition-value">1.2</div>
+        </div>
+
+        <div class="options">
+            <label for="l-repetitie">Letterlijke Repetitie</label>
+            <input type="checkbox" id="l-repetitie" name="l-repetitie">
+        </div>
+    </div>
+</div>
+
+<div id="output-container">
+</div>
+
+<script>var url = '{{ request.url}}';</script>
+<script src="../../static/js/lyric_generator/lyric_generator.js"></script>
+</body>
+
+</html>

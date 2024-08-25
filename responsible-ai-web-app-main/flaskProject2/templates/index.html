@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="description" content="Smartlap generator!">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/ico/favicon-16x16.png">
+    <link rel="manifest" href="../static/ico/site.webmanifest">
+    <link rel="mask-icon" href="../static/ico/safari-pinned-tab.svg" color="#6F58C9">
+    <meta name="msapplication-TileColor" content="#6F58C9">
+    <meta name="theme-color" content="#6F58C9">
+    <title>SmartMakker</title>
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
+</head>
+
+<body>
+<header>
+    <a href="/" id="logo-full">
+        <img src="../static/ico/android-chrome-512x512.png" id="logo-image">
+        <h1>
+            <i style="color: #FF6F59; font-size: xx-large;">Smart</i>
+            <span style="color: white; font-size: xx-large;">Makker</span>
+        </h1>
+    </a>
+    <img src="../static/svg/flowing_gradient.svg" id="help">
+</header>
+
+<div id="top-container">
+    <div id="video-space">
+        <div id="video-field" class="prompt-box">
+            <video id="video" autoplay loop muted controls>
+                <source src="../static/mp4/AAI.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <div id="makker-text">
+        <div id="title-makker-text">
+            <p style="font-size: xx-large;">
+                VOLKSMUZIEK OP DE <br>
+                <b style="color: #6F58C9; font-size: xx-large;">MAKKER</b>LIJKE MANIER
+            </p>
+        </div>
+        <p id="sub-makker-text">
+            Met SmartMakker kunt u samen met artificiële intelligentie <br>
+            een smartlap schrijven!
+        </p>
+    </div>
+</div>
+
+<div id="scroll-button-holder">
+    <div id="scroll-button-overlay" onclick="scrollToBottom()" class="button-behaviour">
+        <button id="scroll-button" class="image-button">
+            <img src="../static/svg/arrow_down.svg">
+        </button>
+        <span style="margin-left: 10px;">Lees hoe het werkt!</span>
+    </div>
+</div>
+
+<div id="info-text">
+    <img src="../static/svg/Explanation.svg" id="info-text-image">
+</div>
+
+<div id="try-button-holder">
+    <div id="try-button-overlay" class="button-behaviour" onclick="goToLyricGenerator()">
+        <button id="try-button" class="image-button">
+            <img src="../static/svg/arrow_right.svg">
+        </button>
+        <span style="margin-left: 10px;">Probeer het zelf!</span>
+    </div>
+</div>
+
+<script>
+    function scrollToBottom() {
+        const scrollOptions = {
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        };
+
+        window.scrollTo(scrollOptions);
+    }
+
+    function goToLyricGenerator() {
+        window.location.href = "lyric_generator";
+    }
+</script>
+</body>
+</html>

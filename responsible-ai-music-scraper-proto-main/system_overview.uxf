@@ -1,0 +1,93 @@
+<diagram program="umletino" version="15.1"><zoom_level>11</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>759</x><y>649</y><w>341</w><h>198</h></coordinates><panel_attributes>&lt;&lt;__main__&gt;&gt;
+Package::data_collector
+--
+Responsibilities
+-- Build the argument parser
+-- Request parsing of input arguments
+-- Request run configuration
+-- Request building backend pipeline
+-- Request run collector pipeline
+-- Request data serialisation
+bg=red</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1023</x><y>77</y><w>198</w><h>121</h></coordinates><panel_attributes>&lt;&lt;Dataclass&gt;&gt;
+Package::text_computing
+
+*TextContainer*
+--
+- creation_date: DateTime
+- text_table: { string: [string] }
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>121</x><y>517</y><w>440</w><h>154</h></coordinates><panel_attributes>&lt;&lt;Dataclass&gt;&gt;
+Package::text_computing
+
+*TextManipulationPipeline*
+--
+- passes: { string: Callable[[string], string] }
+--
++ add_pass(id: string, function: Callable[[string], string]) -&gt; None
++ remove_pass(id: string, function: Callable[[string], string]) -&gt; None
++ run_pipeline(input: string | [string]) -&gt; [string]
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>66</y><w>418</w><h>143</h></coordinates><panel_attributes>&lt;&lt;script&gt;&gt;
+Package::backends
+
+*backend_registery*
+--
+- available_backends: { string: ScraperBackend }
+--
++ register_backend(id: string, backend: ScraperBackend) -&gt; None
++ get_backend(id: string) -&gt; ScraperBackend
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>253</x><y>286</y><w>396</w><h>143</h></coordinates><panel_attributes>&lt;&lt;ABC&gt;&gt;
+Package::backends
+
+*ScraperBackend*
+--
+- id: string
+--
++ initialise(run_arguments: string)
++ run(): [string] @abstractmethod
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>506</x><y>66</y><w>396</w><h>143</h></coordinates><panel_attributes>&lt;&lt;script&gt;&gt;
+Package::backends
+
+*collector_pipeline*
+--
+- initialised_scrapers: { string: ScraperBackend }
+--
++ run_pipeline() -&gt; TextContainer
++ build_pipeline(run_configuration: RunConfiguration) -&gt; None
+bg=green</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>770</x><y>286</y><w>330</w><h>99</h></coordinates><panel_attributes>&lt;&lt;Dataclass&gt;&gt;
+Package::data_io
+
+**RunConfiguration**
+--
+- backend_arguments: { string: string }
+bg=yellow</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>770</x><y>462</y><w>440</w><h>99</h></coordinates><panel_attributes>&lt;&lt;script&gt;&gt;
+Package::data_io
+
+**input_config_parser**
+--
++ load_parse_input_config(config_filepath: string): RunConfiguration
+bg=yellow</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>121</x><y>748</y><w>330</w><h>99</h></coordinates><panel_attributes>&lt;&lt;script&gt;&gt;
+Package::text_computing
+
+*text_manipulation_passes*
+--
++ example_action(to_manipulate: string) -&gt; string
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>264</x><y>198</y><w>110</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+composed of</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>506</x><y>198</y><w>110</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+composed of</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>253</x><y>660</y><w>110</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+composed of</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>781</x><y>198</y><w>99</w><h>110</h></coordinates><panel_attributes>lt=&lt;..
+consumes</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>913</x><y>374</y><w>77</w><h>110</h></coordinates><panel_attributes>lt=&lt;.
+returns</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>891</x><y>121</y><w>154</w><h>44</h></coordinates><panel_attributes>lt=&lt;.
+returns</panel_attributes><additional_attributes>120;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>913</x><y>550</y><w>77</w><h>121</h></coordinates><panel_attributes>lt=&lt;-
+invokes</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1210</x><y>693</y><w>297</w><h>121</h></coordinates><panel_attributes>&lt;&lt;script&gt;&gt;
+Package::data_io
+
+*data_writer*
+--
++ save_to_csv(data: TextContainer) -&gt; None
++ save_to_txt(data: TextContainer) -&gt; None
+bg=yellow</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>693</x><y>198</y><w>88</w><h>583</h></coordinates><panel_attributes>lt=&lt;-
+invokes</panel_attributes><additional_attributes>10;10;10;510;60;510</additional_attributes></element><element><id>Relation</id><coordinates><x>253</x><y>418</y><w>110</w><h>121</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+composed of</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>363</x><y>198</y><w>154</w><h>110</h></coordinates><panel_attributes>lt=&lt;..
+returns &amp; consumes</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1089</x><y>737</y><w>143</w><h>44</h></coordinates><panel_attributes>lt=&lt;-
+invokes</panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>407</x><y>121</y><w>121</w><h>44</h></coordinates><panel_attributes>lt=&lt;-
+invokes</panel_attributes><additional_attributes>10;20;90;20</additional_attributes></element><element><id>Relation</id><coordinates><x>605</x><y>198</y><w>77</w><h>110</h></coordinates><panel_attributes>lt=&lt;-
+invokes</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element></diagram>

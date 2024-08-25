@@ -1,0 +1,89 @@
+<diagram program="umletino" version="15.1"><zoom_level>14</zoom_level><help_text>Space for diagram notes </help_text><element><id>UMLClass</id><coordinates><x>56</x><y>322</y><w>476</w><h>294</h></coordinates><panel_attributes>&lt;&lt;LightningDataModule&gt;&gt;
+Package::lightning_modules
+
+*GPTDataModule*
+--
+- data: str
+- fine_tuning_module: GPTFineTuner
+- batch_size: int
+- column: str
+--
++ prepare_sample(batch: {string: any}) -&gt; BatchEncoding
++ setup(stage: str) 
++ train_dataloader() -&gt; DataLoader
++ prepare_data()
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>658</y><w>616</w><h>434</h></coordinates><panel_attributes>&lt;&lt;LightningModule&gt;&gt;
+Package::lightning_modules
+
+*GPTFineTuner*
+--
+- layers_to_freeze: int
+- model_or_path: string 
+- learning_rate: float | None 
+- optimizer: Type[Optimizer] 
+- optimizer_kwargs: {string: any} | None
+- scheduler: Type[LRScheduler] | None
+- scheduler_kwargs: {string: any} | None
+- scheduler_interval: str | None
+--
++ tokenizer: any
++ model: any
++ config: any
+--
++ __freeze__(layers_to_freeze: int) 
++ forward(batch: any) -&gt; any
++ training_step(batch: tuple, batch_num)
++ configure_optimizers() -&gt; any
+
+bg=red
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>826</x><y>434</y><w>420</w><h>616</h></coordinates><panel_attributes>&lt;&lt;script&gt;&gt;
+Package::trainers
+
+*trainers*
+--
++ fine_tune_gpt_with_lightning( 
+model_path: string, 
+output_path: string, 
+train_data: [string], 
+epochs: int, 
+batch_size: int,
+learning_rate: float | str | None,
+layers_to_freeze: int,
+column: str | None,
+scheduler: LRScheduler | None,
+scheduler_kwargs: {str: any},
+optimizer: Optimizer | None,
+optimizer_kwargs: {str: any}
+) -&gt; None
+--
+fine_tune_gpt_with_lightning_deepspeed(
+model_path: string, 
+output_path: string, 
+train_data: [string], 
+epochs: int, 
+batch_size: int,
+learning_rate: float | str | None,
+layers_to_freeze: int,
+column: str | None
+) -&gt; None
+bg=gray</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>616</x><y>0</y><w>574</w><h>364</h></coordinates><panel_attributes>&lt;&lt;script&gt;&gt;
+Package::generators
+
+*HuggingFaceGenerator*
+--
+- model_path: string
+-deepspeed: bool 
+--
++ generate_single_prompt(
+prompt: string,
+max_length: int, 
+min_length: int, 
+temperature: float, 
+top_p: float, 
+top_k: float, 
+repetition_penalty: float, 
+no_repeat_ngram_size: float
+) -&gt; string
+bg=yellow</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>518</x><y>448</y><w>336</w><h>56</h></coordinates><panel_attributes>composed of 
+lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;20;220;20</additional_attributes></element><element><id>Relation</id><coordinates><x>602</x><y>910</y><w>252</w><h>56</h></coordinates><panel_attributes>composed of
+lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element></diagram>

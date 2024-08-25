@@ -1,0 +1,3 @@
+[submodule "dependencies/responsible-ai-gpt2-proto"]
+	path = dependencies/responsible-ai-gpt2-proto
+	url = https://github.com/RoachieBoy/SmartMakker/tree/main/responsible-ai-gpt2-proto-main 

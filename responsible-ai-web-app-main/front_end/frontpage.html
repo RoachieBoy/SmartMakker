@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<Head>
+    <Title>
+        SmartMakker
+    </Title>
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
+</Head>
+<body onload="checkScreenSize()" onresize="checkScreenSize()">
+    <div class="top_area">SmartMakker</div>
+    <object data="flowing_gradient.svg" type="image/svg+xml" style="margin-top: -70px;" width="100%"></object>
+    <h1 class="title_text" style="margin-top: -5vw;">
+        VOLKSMUZIEK OP DE <br>
+        <span style="color: #6F58C9">MAKKER</span>LIJKE MANIER
+    </h1>
+    <p class="title_text" style="font-size: 1.4vw; margin-top: 0.8vw;">
+        Met SmartMakker kunt u samen met artificiële intelligentie <br>
+        een smartlap schrijven! 
+    </p>
+    <div style="height: 16vw"></div>
+    <div style="display: flex; justify-content: center; align-items: center; font-size: 1.5vw;" id="scrollbutton">
+        <input type="image" src="../static/img/circle.png" style="width: 4vw; height: 4vw; position: relative, z-index=2" onclick="scrollToBottom()">
+        <input type="image" src="../static/svg/arrow_down.svg" type="image/svg+xml" style="width: 3vw; height: 4vw; position: relative; top: 0.1vw; left: -3.5vw; z-index: 1;" onclick="scrollToBottom()">
+        <a onclick="scrollToBottom()" style="margin-left: -2vw;">Lees hoe het werkt.</a>
+    </div>
+    <div style="height: 7vw"></div>
+
+    <div class="steps_text_h" id="steps_text_h">
+        <object width="90%" height="90%" data="./explanation.svg" type="image/svg+xml" preserveAspectRatio="xMidYMid meet"></object>
+    </div>
+    <div  class="steps_text_v" id="steps_text_v">
+        <object width="80%" height="80%" data="./explanation_vertical.svg" type="image/svg+xml" preserveAspectRatio="xMidYMid meet"></object>
+    </div>
+    <div style="height: 7vw"></div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <a href="/lyric_generator/">
+            <input type="image" src="../static/img/circle.png" style="width: 4vw; height: 4vw; position: relative;">
+            <input type="image" src="../static/svg/arrow_right.svg" type="image/svg+xml" style="width: 3vw; height: 4vw; position: relative; top: 0vw; left: -3.7vw; z-index: 1;">
+        </a>
+        <a href="/lyric_generator/" style="margin-left: -2vw; display: inline-block;font-size: 1.5vw;"> Probeer het zelf!</a>
+    </div>
+
+    <script>
+        function scrollToBottom() {
+            document.documentElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'end'
+            });
+        }
+    </script>
+
+<script>
+    function checkScreenSize() {
+      var screenWidth = screen.width;
+      var windowWidth = window.innerWidth;
+      
+      if (windowWidth < window.innerHeight + 200 || screenWidth < screen.innerHeight + 200) {
+        document.getElementById("steps_text_h").style.display = "none";
+        document.getElementById("steps_text_v").style.display = "flex";
+        document.getElementById("scrollbutton").style.display = "none";
+      } else {
+        document.getElementById("steps_text_h").style.display = "flex";
+        document.getElementById("steps_text_v").style.display = "none";
+        document.getElementById("scrollbutton").style.display = "flex";
+      }
+    }
+  </script>
+</body>
